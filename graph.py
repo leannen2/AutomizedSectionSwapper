@@ -30,6 +30,14 @@ class Graph:
     
     def get_adjacency_dict(self):
         return self.adjacencyDict
+
+    def get_edges(self):
+        edges = []
+        for student in self.adjacencyDict:
+            for adjacenctStudent in self.adjacencyDict[student]:
+                edges.append((student, adjacenctStudent))
+        return edges
+
     
 
 if __name__ == "__main__":
@@ -37,4 +45,5 @@ if __name__ == "__main__":
     g.add_student(1, "a", "b")
     g.add_student(2, "b", "c")
     g.add_student(3, "c", "a")
-    print(g.adjacencyDict)
+    print(g.get_edges())
+    print(g.get_adjacency_dict())
