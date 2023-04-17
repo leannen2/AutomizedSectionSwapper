@@ -8,14 +8,15 @@ class Graph:
     def __init__(self):
         self.adjacencyDict = {}
         self.nameToStudent = {}
+        self.students = {}
 
     def add_student(self, name, offer, target):
         if name in self.nameToStudent:
             print("student already exists")
-            return
         new_student = Student(name, offer, target)
         self.nameToStudent[name] = Student(name, offer, target)
         self.adjacencyDict[name] = []
+        self.students.add(name)
         for student in self.adjacencyDict:
             if offer == self.nameToStudent[student].target:
                 self.adjacencyDict[name].append(student)
@@ -37,6 +38,10 @@ class Graph:
             for adjacenctStudent in self.adjacencyDict[student]:
                 edges.append((student, adjacenctStudent))
         return edges
+    
+    def get_students(self):
+        return self.students
+            
 
     
 
